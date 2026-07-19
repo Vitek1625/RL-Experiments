@@ -6,12 +6,11 @@ if __name__ == "__main__":
         "env": {
             "id": "MiniGrid-Empty-Random-6x6-v0",
             "num_cpu": 8,
-            "filepath": "results/MiniGrid-Empty-Random-6x6-v0",
-            "filename": "monitor",
+            "monitor_filepath": "results/MiniGrid-Empty-Random-6x6-v0",
+            "monitor_filename": "monitor",
         },
         "wrappers": {
-                "flat_obs": True,
-                "monitor": True,
+            "flat_obs": True,
         },
         "model": {
             "policy": "MlpPolicy",
@@ -25,10 +24,10 @@ if __name__ == "__main__":
             "clip_range": 0.2,  # Clipping parameter for PPO
             "ent_coef": 0.0,  # Coefficient for the entropy term
         },
-        "save": {
+        "checkpoints": {
             "load": None,  # Path to load a pre-trained model (if any)
-            "path": "results/MiniGrid-Empty-Random-6x6-v0/ppo_model",  # Path to save the trained model
-            "filename": "ppo_model",  # Name of the model file
+            "save": "models/MiniGrid-Empty-Random-6x6-v0/",  # Path to save the trained model
+            "save_freq": 10000,  # Frequency (in timesteps) to save the model
         },
         "learn": {
             "n_timesteps": 50_000,
